@@ -22,6 +22,7 @@ var entradaDeDados = readline.createInterface({
 //   e captar a digitação do usuário
 // Obs: O dado digitado chegará para dentro da função através do seu argumento (nomeUsuário)
 
+
 //Entrada de dados - NOME
 entradaDeDados.question('Digite seu nome: ', function (nomeUsuario){
 
