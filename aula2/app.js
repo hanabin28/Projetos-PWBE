@@ -34,15 +34,18 @@ entradaDeDados.question('Digite seu nome: ', function (nomeUsuario){
     entradaDeDados.question('Digite sua idade: ', function (idadeUsuario){
         var idade = idadeUsuario;
 
+        
         ////
         //Entrada de dados - TELEFONE
         entradaDeDados.question('Digite seu telefone: ', function (telefoneUsuario){
             var telefone = telefoneUsuario;
 
+
             ////
             //Entrada de dados - E-MAIL
             entradaDeDados.question('Digite seu e-mail: ', function (emailUsuario){
                 var email = emailUsuario;
+
 
                 ////
                 //Exibe uma mensagem no terminal com o nome digitado
