@@ -49,7 +49,12 @@ entradaDeDados.question('Digite seu nome: ', function (nomeUsuario){
                 console.log(`Bem vindo ao aplicativo ${nome}`);
                 console.log(`A idade informada foi: ${idade}`);
                 console.log(`O telefone informado foi: ${telefone}`);
-                console.log(`O e-mail informado foi: ${email}`)
+                console.log(`O e-mail informado foi: ${email}`);
+
+
+                ////
+                //encerra o processamento de entrada de dados
+                entradaDeDados.close();
 
             });
         });
