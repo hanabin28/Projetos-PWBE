@@ -21,12 +21,37 @@ var entradaDeDados = readline.createInterface({
 // Função de callBack - permite apresentar uma mensagem no terminal,
 //   e captar a digitação do usuário
 // Obs: O dado digitado chegará para dentro da função através do seu argumento (nomeUsuário)
+
+//Entrada de dados - NOME
 entradaDeDados.question('Digite seu nome: ' , function(nomeUsuario){
 
     //recebe o nome digitado
     var nome = nomeUsuario;
 
-    //exibe uma mensagem no terminal com o nome digitado
-    console.log(`Bem vindo ao aplicativo ${nome}`)
+    ////
+    //Entrada de dados - IDADE
+    entradaDeDados.question('Digite sua idade: ' , function(idadeUsuario){
+        var idade = idadeUsuario;
 
+        ////
+        //Entrada de dados - TELEFONE
+        entradaDeDados.question('Digite seu telefone: ' , function(telefoneUsuario){
+            var telefone = telefoneUsuario;
+
+            ////
+            //Entrada de dados - E-MAIL
+            entradaDeDados.question('Digite seu e-mail: ' , function(emailUsuario){
+                var email = emailUsuario;
+
+                ////
+                //exibe uma mensagem no terminal com o nome digitado
+                console.log();
+                console.log(`Bem vindo ao aplicativo ${nome}`);
+                console.log(`A idade informada foi: ${idade}`);
+                console.log(`O telefone informado foi: ${telefone}`);
+                console.log(`O e-mail informado foi: ${email}`)
+
+            });
+        });
+    });
 });
