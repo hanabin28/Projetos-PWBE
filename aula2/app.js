@@ -23,24 +23,24 @@ var entradaDeDados = readline.createInterface({
 // Obs: O dado digitado chegará para dentro da função através do seu argumento (nomeUsuário)
 
 //Entrada de dados - NOME
-entradaDeDados.question('Digite seu nome: ' , function(nomeUsuario){
+entradaDeDados.question('Digite seu nome: ', function (nomeUsuario){
 
     //recebe o nome digitado
     var nome = nomeUsuario;
 
     ////
     //Entrada de dados - IDADE
-    entradaDeDados.question('Digite sua idade: ' , function(idadeUsuario){
+    entradaDeDados.question('Digite sua idade: ', function (idadeUsuario){
         var idade = idadeUsuario;
 
         ////
         //Entrada de dados - TELEFONE
-        entradaDeDados.question('Digite seu telefone: ' , function(telefoneUsuario){
+        entradaDeDados.question('Digite seu telefone: ', function (telefoneUsuario){
             var telefone = telefoneUsuario;
 
             ////
             //Entrada de dados - E-MAIL
-            entradaDeDados.question('Digite seu e-mail: ' , function(emailUsuario){
+            entradaDeDados.question('Digite seu e-mail: ', function (emailUsuario){
                 var email = emailUsuario;
 
                 ////
