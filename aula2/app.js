@@ -44,7 +44,7 @@ entradaDeDados.question('Digite seu nome: ', function (nomeUsuario){
                 var email = emailUsuario;
 
                 ////
-                //exibe uma mensagem no terminal com o nome digitado
+                //Exibe uma mensagem no terminal com o nome digitado
                 console.log();
                 console.log(`Bem vindo ao aplicativo ${nome}`);
                 console.log(`A idade informada foi: ${idade}`);
