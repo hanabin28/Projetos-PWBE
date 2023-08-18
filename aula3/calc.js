@@ -4,7 +4,15 @@
  * Data: 11/08/2023                                                            *
  * Autor: Vitoria Azevedo da Cruz                                              *
  * Versão: 1.0                                                                 *
- *******************************************************************************/
+*******************************************************************************/
+
+/***********************************
+ *    Validação do UNDEFINED       *
+ *  |if(resultado!=undefined)      *
+ *      |console.log('resultado'); *
+ ***********************************/
+
+
 
 var readline = require('readline');
 
@@ -34,26 +42,34 @@ entradaDados.question('Qual operação você irá utilizar? [+|Soma  -|Subtraç�
         //Entrada de dados - SEGUNDO NÚMERO
         entradaDados.question('Digite o segundo número: ', function(numero2){
             let n2 = numero2.replace(',' , '.');
+            n1 = Number(n1);
+            n2 = Number(n2);
+
 
             ////
-            //V
-            if(operacoes!="+" || operacoes!= "-" || operacoes!= "*" || operacoes!= "/"){
-
+            //Validação da entrada apenas das OPERAÇÕES VÁLIDAS
+            if(operacoes!="+" && operacoes!= "-" && operacoes!= "*" && operacoes!= "/")
                 console.log('ERRO: Digite apenas operações válidas!!');
-                entradaDados.close();
 
-            }else if(isNaN(n1) || isNaN(n2)){
+             ////
+             //Validação da entrada de dados VAZIA
+            else if(n1=='' || n2=='')
+                console.log('ERRO: É obrigatório inserir os valores!!');
 
-                console.log('ERRO: Digite apenas números!!');
-                entradaDados.close();
+            ////
+            //Validação da entrada apenas de NÚMEROS
+            else if(isNaN(n1) || isNaN(n2))
+                console.log('ERRO: Digite apenas números!!')
 
-            }else{
+            ////
+            //Validação das OPERAÇÕES
+            else{
                 switch(operacoes){
 
                     ////
                     //SOMA
                     case "+":
-                        const soma = Number(n1) + Number(n2);
+                        const soma= n1 + n2;
                         console.log(`O resultado é: ${soma}`);
                         break;
     
@@ -61,7 +77,7 @@ entradaDados.question('Qual operação você irá utilizar? [+|Soma  -|Subtraç�
                     ////
                     //SUBTRAÇÃO
                     case "-":
-                        const subtrai = Number(n1) - Number(n2);
+                        const subtrai = n1 - n2;
                         console.log(`O resultado é: ${subtrai}`);
                         break;
     
@@ -69,7 +85,7 @@ entradaDados.question('Qual operação você irá utilizar? [+|Soma  -|Subtraç�
                     ////
                     //MULTIPLICAÇÃO
                     case "*":
-                        const multiplica = Number(n1) * Number(n2);
+                        const multiplica = n1 * n2;
                         console.log(`O resultado é: ${multiplica}`);
                         break;
     
@@ -77,18 +93,21 @@ entradaDados.question('Qual operação você irá utilizar? [+|Soma  -|Subtraç�
                     ////
                     //DIVISÃO
                     case "/":
-                        if(n2==0){
+
+                        ////
+                        //Validação da entrada de dados de 0 no SEGUNDO NÚMERO
+                        if(n2==0)
                             console.log('ERRO: Nenhum número é divisível por zero, \n' + '      tente novamente!')
-                        }else{
-                            const divide = Number(n1) / Number(n2);
+                        else{
+                            const divide = n1 / n2;
                             console.log(`O resultado é: ${divide}`);
                             break;
                         }
                 }
                 entradaDados.close();
             }
-
             
+
         })
     })
 })
