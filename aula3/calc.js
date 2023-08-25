@@ -15,7 +15,7 @@
 
 ////
 //Import da nossa biblioteca 'calculosMatematicos'
-var calculosMatematicos = require('./modulo/calculoMatematicos.js');
+var calculosMatematicos = require('./modulo/calculosMatematicos.js');
 
 ////
 //Import da biblioteca 'readline'
@@ -67,9 +67,11 @@ entradaDados.question('Qual operação você irá utilizar? [+|Soma  -|Subtraç�
             //Validação das OPERAÇÕES
             else{
 
+                //Convertendo pra número
                 n1 = Number(n1);
                 n2 = Number(n2);
 
+                //"Chamando" a função 'calculadora', do arquivo calculoMatematicos
                 resultado=calculosMatematicos.calculadora(n1, n2, operacoes);
                 if(resultado)
                     console.log(resultado);
@@ -77,9 +79,9 @@ entradaDados.question('Qual operação você irá utilizar? [+|Soma  -|Subtraç�
                     entradaDados.close();
 
             }
+            
             entradaDados.close();
             
-
         })
     })
 })
