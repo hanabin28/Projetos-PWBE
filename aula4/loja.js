@@ -33,19 +33,22 @@ var entradaDados = readline.createInterface({
 entradaDados.question('Insira o valor do produto: \n', function(valorProduto){
     let valor = valorProduto.replace(',' , '.');
 
-    entradaDados.question('Qual a forma de pagamento?\n[1- À vista]  [2- À vista, no cartão]  [3- Em 2x, sem juros]  [4- Em 4x, juros de 8%]\n', function(formaPagamento){
+    entradaDados.question('Qual a forma de pagamento?\n[1- À vista, 8% de desconto]  [2- À vista, no cartão, 4% de desconto]  [3- Em 2x, sem juros]  [4- Em 4x, acréscimo de 8%]\n', function(formaPagamento){
         let pagamento = formaPagamento;
 
-        if(pagamento != 1 && pagamento != 2 && pagamento != 3 && pagamento != 4)
+        if(pagamento > 4 || pagamento < 1 || isNaN(pagamento))
             console.log('ERRO: Opção inválida!! Digite apenas as opções acima!');
-        else if(valor == '' || isNaN(valor))
+        else if(valor == '' || isNaN(valor) || valor<0){
             console.log('ERRO: Insira o valor do produto!!');
+        }else{
 
-            resultado=calculoVendas.porcentagem(valorP, fPagamento);
-            console.log(`O valor atualizado do produto é: ${resultado}`);
+            valor = Number(valor)
+            // resultado=calculoVendas.porcentagem(valorP, fPagamento);
+            valorAtualizado = calculoVendas.porcentagem(valor, pagamento)
+            console.log(`O valor atualizado do produto é: ${valorAtualizado}`);
+        }
 
-
-
+        
         entradaDados.close();
 
     })
