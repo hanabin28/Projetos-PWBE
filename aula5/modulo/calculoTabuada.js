@@ -34,7 +34,7 @@ const calcularTabuada = function(valorTabuada, contadorInicial, contadorFinal){
     let status = false;
     ////
     //Validação para o quando o 'contFinal' for menor que o 'contInicial' - trocando os valores das variáveis
-    if(contFinal<contInicial){
+    if(Number(contFinal) < Number(contInicial)){
         ////
         //Usando os argumentos:
         contFinal = contadorInicial;
@@ -46,6 +46,7 @@ const calcularTabuada = function(valorTabuada, contadorInicial, contadorFinal){
     else if(isNaN(tabuada) || isNaN(contInicial) || isNaN(contFinal))
         console.log('ERRO: É obrigatório a entrada somente de números')
     else{
+     
         ////
         //Convertendo as variáveis em número
         contInicial = Number(contInicial);
@@ -53,14 +54,24 @@ const calcularTabuada = function(valorTabuada, contadorInicial, contadorFinal){
         tabuada = Number(tabuada);
 
         //Exemplo usando WHILE
-       while(contInicial<=contFinal){
-        resultado = tabuada * contInicial;
-        console.log(`${tabuada} X ${contInicial} = ${resultado}`);
-        contInicial++;
-        status=true;
+        // while(contInicial<=contFinal){
+        // resultado = tabuada * contInicial;
+        // console.log(`${tabuada} X ${contInicial} = ${resultado}`);
+        // contInicial++;
+        // status=true;
+        // }
+
+
+        //Exemplo usando FOR
+        for( ; contInicial<=contFinal; contInicial++){
+            resultado = tabuada * contInicial;
+            console.log(`${tabuada} X ${contInicial} = ${resultado}`);
+            status=true;
         }
     }
     return status;
 }
 
-console.log(calcularTabuada(0, 0, 0));
+module.exports={
+    calcularTabuada
+}
