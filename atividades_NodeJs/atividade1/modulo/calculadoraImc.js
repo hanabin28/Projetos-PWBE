@@ -6,6 +6,7 @@
  * Versão: 1.0                                                    *
  ******************************************************************/
 
+//Função para fazer o CÁLCULO do IMC
 const calculoImc = function(imcPeso, imcAltura){
     let peso = String(imcPeso).replace(',','.');
     let altura = String(imcAltura).replace(',','.');
@@ -16,13 +17,13 @@ const calculoImc = function(imcPeso, imcAltura){
     altura = Number(altura);
 
     imc = peso / (altura*altura);
-    return imc.toFixed(2);
+    return imc;
 }
 
+
+//Função para validar a CLASSIFICAÇÃO do IMC
 const verificarImc = function(imc){
     imc = Number(imc)
-
-    console.log(`O seu IMC é: ${imc}`);
     let classificacao
 
     if(imc < 18.5){
@@ -37,10 +38,10 @@ const verificarImc = function(imc){
     }else if (imc >= 30 && imc <=34.9) {
         classificacao = console.log(`Obesidade I`)
 
-    }else if (imc >=35 && imc >= 39.9) {
+    }else if (imc >=35 && imc <= 39.9) {
         classificacao = console.log(`Obesidade II`)
 
-    }else if (imc >40) {
+    }else if (imc >= 40) {
         classificacao = console.log(`Obesidade III`)
     }
 

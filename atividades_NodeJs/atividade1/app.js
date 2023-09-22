@@ -14,15 +14,20 @@ var entradaDeDados = readline.createInterface({
     output:process.stdout
 })
 
-
+//Entrada de dados para o PESO
 entradaDeDados.question('Digite seu peso: ', function(valorPeso){
     let peso = valorPeso;
 
+    //Entrada de dados para a ALTURA
     entradaDeDados.question('Digite sua altura: ', function(valorAltura){
         let altura = valorAltura;
+        let imprimir;
+        imprimir = calcImc.calculoImc(peso,altura);
 
         calcImc.calculoImc(peso,altura);
-        calcImc.verificarImc(peso,altura);
+        console.log(`Seu imc é: ${imprimir.toFixed(2)}`)
+        calcImc.verificarImc(calcImc.calculoImc(peso,altura));
+
         entradaDeDados.close();
     })
 })
