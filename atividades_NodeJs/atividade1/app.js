@@ -24,9 +24,8 @@ entradaDeDados.question('Digite seu peso: ', function(valorPeso){
         let imprimir;
         imprimir = calcImc.calculoImc(peso,altura);
 
-        calcImc.calculoImc(peso,altura);
         console.log(`Seu imc é: ${imprimir.toFixed(2)}`)
-        calcImc.verificarImc(calcImc.calculoImc(peso,altura));
+        calcImc.verificarImc(imprimir);
 
         entradaDeDados.close();
     })
