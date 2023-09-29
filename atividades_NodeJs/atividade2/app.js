@@ -6,7 +6,7 @@
  * Versão: 1.0                                                                     *
  ***********************************************************************************/
 
-var calcMedia = require('./modulo/calcularMedia');
+var media = require('./modulo/calcularMedia');
 
 var readline = require('readline');
 
@@ -51,10 +51,22 @@ entradaDeDados.question('Insira o nome do aluno: ', function (alunoNome) {
                                 entradaDeDados.question('Insira a quarta nota: ', function (quartaNota) {
                                     let nota4 = quartaNota;
 
-                                    if (nota1 < 0 || nota1 > 100 || nota2 < 0 || nota2 > 100 || nota3 < 0 || nota3 > 100 || nota4 < 0 || nota4 > 100)
-                                        console.log('ERRO: Insira valores apenas entre 1 e 100!')
-                                    else if (nota1 == "" || nota2 == "" || nota3 == "" || nota4 == "") {
+                                    if (nota1 == "" || nota2 == "" || nota3 == "" || nota4 == "")
                                         console.log('ERRO: Insira TODOS os valores!!')
+                                    else if(isNaN(nota1) || isNaN(nota2) || isNaN(nota3) || isNaN(nota4))
+                                        console.log("ERRO: Insira apenas números!!")
+                                    else if (nota1 < 0 || nota1 > 100 || nota2 < 0 || nota2 > 100 || nota3 < 0 || nota3 > 100 || nota4 < 0 || nota4 > 100)
+                                        console.log('ERRO: Insira valores apenas entre 1 e 100!')
+                                    else{
+                                        let imprimirMedia = media.calcMedia(nota1, nota2, nota3, nota4)
+                                        let imprimirStatus = media.statusAluno(imprimirMedia)
+                                        console.log(`A média é: ${imprimirMedia}`)
+                                        console.log(`A classificação é: ${imprimirStatus}`)
+
+                                        if (condition) {
+                                            
+                                        }
+
                                     }
 
                                     entradaDeDados.close();

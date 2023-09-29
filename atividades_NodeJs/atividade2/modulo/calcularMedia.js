@@ -67,3 +67,10 @@ const statusAlunoExame = function(mediaExame){
     return situacaoExame;
 
 }
+
+module.exports={
+    calcMedia,
+    statusAluno,
+    calcMediaExame,
+    statusAlunoExame
+}
