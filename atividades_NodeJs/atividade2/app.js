@@ -32,7 +32,7 @@ entradaDeDados.question('Insira o nome do aluno: ', function (alunoNome) {
                 let professorSexo = sexoProfessor
 
                 //Entrada de dados para a DISCIPLINA
-                entradaDeDados.question('Insira o nome da disciplina:', function (materia) {
+                entradaDeDados.question('Insira o nome da disciplina: ', function (materia) {
                     let disciplina = materia;
 
                     //Entrada de dados para a PRIMEIRA NOTA
@@ -63,13 +63,25 @@ entradaDeDados.question('Insira o nome do aluno: ', function (alunoNome) {
                                         console.log(`A média é: ${imprimirMedia}`)
                                         console.log(`A classificação é: ${imprimirStatus}`)
 
-                                        if (condition) {
-                                            
+                                        // let status = false;
+                                        if (imprimirStatus == 'em exame') {
+                                            entradaDeDados.question('Insira a nota do exame: ', function(quintaNota){
+                                                let nota5 = quintaNota;
+
+                                                let imprimirExame = media.calcMediaExame(imprimirMedia, nota5)
+                                                let imprimirStatusExame = media.statusAlunoExame(imprimirExame)
+                                                console.log(`A média é: ${imprimirExame}`)
+                                                console.log(`A classificação é: ${imprimirStatusExame}`)
+                                                // status = true;
+
+
+                                            })
                                         }
-
+                                        // return status;
+                                        
+                                        entradaDeDados.close();
                                     }
-
-                                    entradaDeDados.close();
+                                    
                                 })
                             })
                         })
