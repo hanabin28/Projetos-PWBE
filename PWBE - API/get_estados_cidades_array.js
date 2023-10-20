@@ -15,4 +15,13 @@ const getListaDeEstados = function(){
     return listaDeEstadosJson
 }
 
-getListaDeEstados()
+const getDadosEstado = function(siglaEstado){
+    let siglaEst = String(siglaEstado)
+    let dadosEstado = {}
+
+
+}
+
+getDadosEstado('SP')
+
+// getListaDeEstados()
