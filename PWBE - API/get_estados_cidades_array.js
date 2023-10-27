@@ -78,20 +78,24 @@ const getCapitalPais = function(){
     estadosCidades.estadosCidades.estados.forEach(function(capitalPais){
 
         if(capitalPais.capital_pais != undefined){
+
             let capitais = {}
             capitais.capital_atual = capitalPais.capital_pais.capital
             capitais.uf = capitalPais.sigla
             capitais.descricao = capitalPais.nome
-            capitalPais.capital = capitalPais.capital
-            capitalPais.regiao = capitalPais.regiao
-            capitalPais.capital_pais_ano_inicio = capitalPais.capital_pais.ano_inicio
-            capitalPais.capital_pais_ano_termino = capitalPais.capital_pais.ano_fim
+            capitais.capital = capitalPais.capital
+            capitais.regiao = capitalPais.regiao
+            capitais.capital_pais_ano_inicio = capitalPais.capital_pais.ano_inicio
+            capitais.capital_pais_ano_termino = capitalPais.capital_pais.ano_fim
 
             capitalEst.push(capitais)
         }
     })
+    capitaisPais.capitais = capitalEst
+    console.log(capitaisPais)
 }
 
+getCapitalPais()
 
 // getEstadosRegiao('Sudeste')
 
