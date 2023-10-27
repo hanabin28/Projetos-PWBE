@@ -11,7 +11,6 @@ const getListaDeEstados = function(){
     listaDeEstadosJson.uf = listaDeEstadosArray
     listaDeEstadosJson.quantidade = listaDeEstadosArray.length
 
-    console.log(listaDeEstadosJson)
     return listaDeEstadosJson
 }
 
@@ -19,9 +18,85 @@ const getDadosEstado = function(siglaEstado){
     let siglaEst = String(siglaEstado)
     let dadosEstado = {}
 
+    estadosCidades.estadosCidades.estados.forEach(function(estado){
+        if(estado.sigla.includes(siglaEst)){
+            dadosEstado.uf = estado.sigla
+            dadosEstado.descricao = estado.nome
+            dadosEstado.capital = estado.capital
+            dadosEstado.regiao = estado.regiao
+        }
 
+    })
+    return dadosEstado
 }
 
-getDadosEstado('SP')
+const getCapitalEstado = function(siglaEstado){
+    let siglaEst = String(siglaEstado)
+    let dadosCapital = {}
+
+    estadosCidades.estadosCidades.estados.forEach(function(capital){
+        if(capital.sigla.includes(siglaEst)){
+            dadosCapital.uf = capital.sigla
+            dadosCapital.descricao = capital.nome
+            dadosCapital.capital = capital.capital
+        }
+    })
+
+    return dadosCapital
+}
+
+const getEstadosRegiao = function(regiaoEstado){
+    let regiaoEst = String(regiaoEstado)
+
+    let dadosRegiao = {}
+    let estados = []
+    
+    dadosRegiao.regiao = regiaoEst
+
+
+    estadosCidades.estadosCidades.estados.forEach(function(regiao){
+
+        if(regiao.regiao.includes(regiaoEst)){
+
+            let estadoRegiao = {}
+            estadoRegiao.uf = regiao.sigla
+            estadoRegiao.descricao = regiao.nome
+
+            estados.push(estadoRegiao)
+        }
+    })
+
+    dadosRegiao.estados = estados
+
+    return dadosRegiao
+}
+
+const getCapitalPais = function(){
+    let capitaisPais = {}
+    let capitalEst = []
+
+    estadosCidades.estadosCidades.estados.forEach(function(capitalPais){
+
+        if(capitalPais.capital_pais != undefined){
+            let capitais = {}
+            capitais.capital_atual = capitalPais.capital_pais.capital
+            capitais.uf = capitalPais.sigla
+            capitais.descricao = capitalPais.nome
+            capitalPais.capital = capitalPais.capital
+            capitalPais.regiao = capitalPais.regiao
+            capitalPais.capital_pais_ano_inicio = capitalPais.capital_pais.ano_inicio
+            capitalPais.capital_pais_ano_termino = capitalPais.capital_pais.ano_fim
+
+            capitalEst.push(capitais)
+        }
+    })
+}
+
+
+// getEstadosRegiao('Sudeste')
+
+// getCapitalEstado('AC')
+
+// getDadosEstado('SP')
 
 // getListaDeEstados()
