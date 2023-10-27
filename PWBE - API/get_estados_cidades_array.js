@@ -92,15 +92,39 @@ const getCapitalPais = function(){
         }
     })
     capitaisPais.capitais = capitalEst
-    console.log(capitaisPais)
+    return capitaisPais
 }
+
+const getCidades = function(siglaEstado){
+    let siglaEst = siglaEstado
+
+    let cidadesArray = []
+    let listaCidades = {}
+
+    estadosCidades.estadosCidades.estados.forEach(function(cidades){
+        if (cidades.sigla.includes(siglaEst)){
+            listaCidades.uf = cidades.sigla
+            listaCidades.descricao = cidades.nome
+            listaCidades.quantidade_cidades = cidades.cidades.length
+
+            cidades.cidades.forEach(function(cidade){
+                let cidadesNome = cidade.nome
+                cidadesArray.push(cidadesNome)
+            })
+        }
+    })
+    listaCidades.cidades = cidadesArray
+    return listaCidades
+}
+
+getCidades('PE')
 
 getCapitalPais()
 
-// getEstadosRegiao('Sudeste')
+getEstadosRegiao('Sudeste')
 
-// getCapitalEstado('AC')
+getCapitalEstado('AC')
 
-// getDadosEstado('SP')
+getDadosEstado('SP')
 
-// getListaDeEstados()
+getListaDeEstados()
