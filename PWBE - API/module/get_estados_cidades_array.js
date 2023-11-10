@@ -1,4 +1,4 @@
-var estadosCidades = require('./module/estados_cidades.js')
+var estadosCidades = require('./estados_cidades.js')
 
 const getListaDeEstados = function(){
     let listaDeEstadosJson = {}
@@ -116,6 +116,16 @@ const getCidades = function(siglaEstado){
     listaCidades.cidades = cidadesArray
     return listaCidades
 }
+
+module.exports={
+    getListaDeEstados,
+    getDadosEstado,
+    getCapitalEstado,
+    getEstadosRegiao,
+    getCapitalPais,
+    getCidades
+}
+
 
 getCidades('PE')
 
