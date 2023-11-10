@@ -125,16 +125,3 @@ module.exports={
     getCapitalPais,
     getCidades
 }
-
-
-getCidades('PE')
-
-getCapitalPais()
-
-getEstadosRegiao('Sudeste')
-
-getCapitalEstado('AC')
-
-getDadosEstado('SP')
-
-getListaDeEstados()
