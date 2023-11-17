@@ -17,6 +17,7 @@ const getListaDeEstados = function(){
 const getDadosEstado = function(siglaEstado){
     let siglaEst = String(siglaEstado)
     let dadosEstado = {}
+    let status = false
 
     estadosCidades.estadosCidades.estados.forEach(function(estado){
         if(estado.sigla.includes(siglaEst)){
@@ -24,25 +25,35 @@ const getDadosEstado = function(siglaEstado){
             dadosEstado.descricao = estado.nome
             dadosEstado.capital = estado.capital
             dadosEstado.regiao = estado.regiao
+            status = true
         }
 
     })
-    return dadosEstado
+
+    if(status)
+        return dadosEstado
+    else
+        return false
 }
 
 const getCapitalEstado = function(siglaEstado){
     let siglaEst = String(siglaEstado)
     let dadosCapital = {}
+    let status = false
 
     estadosCidades.estadosCidades.estados.forEach(function(capital){
         if(capital.sigla.includes(siglaEst)){
             dadosCapital.uf = capital.sigla
             dadosCapital.descricao = capital.nome
             dadosCapital.capital = capital.capital
+            status = true
         }
     })
 
-    return dadosCapital
+    if(status)
+        return dadosCapital
+    else
+        return false
 }
 
 const getEstadosRegiao = function(regiaoEstado){
@@ -50,6 +61,7 @@ const getEstadosRegiao = function(regiaoEstado){
 
     let dadosRegiao = {}
     let estados = []
+    let status = false
     
     dadosRegiao.regiao = regiaoEst
 
@@ -63,17 +75,23 @@ const getEstadosRegiao = function(regiaoEstado){
             estadoRegiao.descricao = regiao.nome
 
             estados.push(estadoRegiao)
+            
+            status = true
         }
     })
 
     dadosRegiao.estados = estados
 
-    return dadosRegiao
+    if(status)
+        return dadosRegiao
+    else
+        return false
 }
 
 const getCapitalPais = function(){
     let capitaisPais = {}
     let capitalEst = []
+    let status = false
 
     estadosCidades.estadosCidades.estados.forEach(function(capitalPais){
 
@@ -89,10 +107,14 @@ const getCapitalPais = function(){
             capitais.capital_pais_ano_termino = capitalPais.capital_pais.ano_fim
 
             capitalEst.push(capitais)
+            status = true
         }
     })
     capitaisPais.capitais = capitalEst
-    return capitaisPais
+    if(status)
+        return capitaisPais
+    else
+        return false
 }
 
 const getCidades = function(siglaEstado){
@@ -100,6 +122,7 @@ const getCidades = function(siglaEstado){
 
     let cidadesArray = []
     let listaCidades = {}
+    let status = false
 
     estadosCidades.estadosCidades.estados.forEach(function(cidades){
         if (cidades.sigla.includes(siglaEst)){
@@ -111,10 +134,15 @@ const getCidades = function(siglaEstado){
                 let cidadesNome = cidade.nome
                 cidadesArray.push(cidadesNome)
             })
+
+            status = true
         }
     })
     listaCidades.cidades = cidadesArray
-    return listaCidades
+    if(status)
+        return listaCidades
+    else
+        return false
 }
 
 module.exports={
