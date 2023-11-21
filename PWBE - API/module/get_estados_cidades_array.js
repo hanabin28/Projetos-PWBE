@@ -1,5 +1,6 @@
 var estadosCidades = require('./estados_cidades.js')
 
+//
 const getListaDeEstados = function(){
     let listaDeEstadosJson = {}
     let listaDeEstadosArray = []
@@ -14,13 +15,14 @@ const getListaDeEstados = function(){
     return listaDeEstadosJson
 }
 
+//
 const getDadosEstado = function(siglaEstado){
     let siglaEst = String(siglaEstado)
     let dadosEstado = {}
     let status = false
 
     estadosCidades.estadosCidades.estados.forEach(function(estado){
-        if(estado.sigla.includes(siglaEst)){
+        if(estado.sigla.toLowerCase().includes(siglaEst)){
             dadosEstado.uf = estado.sigla
             dadosEstado.descricao = estado.nome
             dadosEstado.capital = estado.capital
@@ -36,13 +38,14 @@ const getDadosEstado = function(siglaEstado){
         return false
 }
 
+//
 const getCapitalEstado = function(siglaEstado){
     let siglaEst = String(siglaEstado)
     let dadosCapital = {}
     let status = false
 
     estadosCidades.estadosCidades.estados.forEach(function(capital){
-        if(capital.sigla.includes(siglaEst)){
+        if(capital.sigla.toLowerCase().includes(siglaEst)){
             dadosCapital.uf = capital.sigla
             dadosCapital.descricao = capital.nome
             dadosCapital.capital = capital.capital
@@ -56,6 +59,7 @@ const getCapitalEstado = function(siglaEstado){
         return false
 }
 
+//
 const getEstadosRegiao = function(regiaoEstado){
     let regiaoEst = String(regiaoEstado)
 
@@ -68,7 +72,7 @@ const getEstadosRegiao = function(regiaoEstado){
 
     estadosCidades.estadosCidades.estados.forEach(function(regiao){
 
-        if(regiao.regiao.includes(regiaoEst)){
+        if(regiao.regiao.toLocaleUpperCase().includes(regiaoEst)){
 
             let estadoRegiao = {}
             estadoRegiao.uf = regiao.sigla
@@ -88,6 +92,7 @@ const getEstadosRegiao = function(regiaoEstado){
         return false
 }
 
+//
 const getCapitalPais = function(){
     let capitaisPais = {}
     let capitalEst = []
@@ -117,6 +122,7 @@ const getCapitalPais = function(){
         return false
 }
 
+//
 const getCidades = function(siglaEstado){
     let siglaEst = siglaEstado
 
@@ -125,7 +131,7 @@ const getCidades = function(siglaEstado){
     let status = false
 
     estadosCidades.estadosCidades.estados.forEach(function(cidades){
-        if (cidades.sigla.includes(siglaEst)){
+        if (cidades.sigla.toLowerCase().includes(siglaEst)){
             listaCidades.uf = cidades.sigla
             listaCidades.descricao = cidades.nome
             listaCidades.quantidade_cidades = cidades.cidades.length
